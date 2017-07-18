@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Catclicker</title>
+</head>
+<body>
+  <img id = 'picture' src="http://placehold.it/640x450" />
+  <p id = "demo">How many times the cat has been clicked?</p>
+</body>
+<script>
+var cats = ["kitten", "hidingCat", "twoKittens"];
+var cat_image = ["image/kitten.jpg","image/hiding-cat.jpg","image/two-kittens.jpg"];
+var count = [0,0,0];
+
+for(var i = 0; i < cats.length; i++){
+  var name = cats[i];
+  var elem = document.createElement('div');
+  elem.textContent = name;
+    (function(lockedIndex){
+
+      var image = cat_image[lockedIndex];
+      elem.addEventListener('click', function(){
+  //the element has been clicked... do stuff here
+    document.getElementById('demo').innerHTML = cats[lockedIndex];
+    document.getElementById('picture').src = image;
+    picture.addEventListener('click', function(){
+      count[lockedIndex]++;
+      document.getElementById('demo').innerHTML = cats[lockedIndex] + ' has been clicked ' + count[lockedIndex] + ' times!';
+
+    ;},false);
+}, false);
+})(i);
+
+  document.body.appendChild(elem);
+}
+
+
+</script>
+</html>
